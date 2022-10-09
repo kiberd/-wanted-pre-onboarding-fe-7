@@ -43,7 +43,10 @@ const StyledInput = styled.input`
   margin: 10px 0;
 `;
 
-const TodoItem = () => {
+const TodoItem = ({ todo }) => {
+
+  console.log(todo);
+
   const [isModify, setIsModify] = useState(false);
 
   return (
@@ -53,8 +56,8 @@ const TodoItem = () => {
           <StyledInput />
         ) : (
           <>
-            <p>원티드 프리온보딩 챌린지 과제하기원티드 프리온보딩 챌린지 과제하기원티드 프리온보딩 챌린지 과제하기원티드 프리온보딩 챌린지 과제하기원티드 프리온보딩 챌린지 과제하기원티드 프리온보딩 챌린지 과제하기</p>
-            <span>2022/10/09 18:40</span>
+            <p>{todo.todo}</p>
+            <span>Info</span>
           </>
         )}
       </TodoContents>

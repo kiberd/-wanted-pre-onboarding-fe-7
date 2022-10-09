@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect, useState, Suspense } from "react";
+import ErrorBoundary from "../utills/ErrorBoundary";
+
 import styled from "styled-components";
 import { DefaultButton } from "../styles/Buttons";
-import TodoItem from "../components/TodoItem";
+
+import TodoList from "../components/TodoList";
+
+import { createTodo, getTodos, updateTodo, deleteTodo } from '../api/api';
+
+import Loading from "./Loading";
+import Error from "./Error";
 
 const TodoContainer = styled.div`
   display: flex;
@@ -39,37 +47,44 @@ const TodoListContainer = styled.div`
     overflow: auto;
 `;
 
+
 const Todo = () => {
 
+  const [todoInput, setTodoInput] = useState();
+  const [todoList, setTodoList] = useState([]);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setTodoInput(value);
+  };
+
+  const handleCreateClick = async () => {
+    try {
+      const response = await createTodo(todoInput);
+      setTodoList([...todoList, response.data]);
+      alert("생성 성공!");
+    } catch (error) {
+      alert(`다음과 같은 이유로 생성이 실패했습니다 : ${error.response.data.message}`);
+    }
+  };
 
   return (
     <TodoContainer>
 
-
       <TodoInputContainer>
         <legend>할일 등록</legend>
-        <StyledInput />
-        <DefaultButton>추가</DefaultButton>
+        <StyledInput onChange={handleChange} />
+        <DefaultButton onClick={handleCreateClick}>추가</DefaultButton>
       </TodoInputContainer>
 
-
       <TodoListContainer>
-        {/* <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem />
-        <TodoItem /> */}
+        <Suspense fallback={<Loading/>}>
+          <ErrorBoundary fallback={<Error/>} >
+            <TodoList />
+          </ErrorBoundary>
+        </Suspense>
       </TodoListContainer>
 
-
-
-
-      
     </TodoContainer>
   );
 };
