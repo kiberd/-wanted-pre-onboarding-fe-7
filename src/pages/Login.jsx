@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import useForm from "../useForm";
-
 import { Link, useNavigate } from "react-router-dom";
-
 import { validate } from "../utills/validate";
-import { useAuth } from "../useAuth";
+import { useAuth } from "../hooks/useAuth";
+import useForm from "../hooks/useForm";
+
+import { DefaultButton } from '../styles/Buttons';
 
 const StyledRegisterContainer = styled.div`
   width: 100%;
@@ -44,14 +44,6 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   padding: 30px;
-`;
-
-const StyeldButton = styled.button`
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 1rem;
-  line-height: 1.5;
-  border: 1px solid lightgray;
 `;
 
 const ErrorMsg = styled.span`
@@ -109,14 +101,14 @@ const Login = () => {
           )}
 
           <ButtonContainer>
-            <StyeldButton
+            <DefaultButton
               type="submit"
               disabled={Object.values(errors).length !== 0}
             >
               로그인
-            </StyeldButton>
+            </DefaultButton>
             <Link to="/register">
-              <StyeldButton type="submit">회원가입</StyeldButton>
+              <DefaultButton type="submit">회원가입</DefaultButton>
             </Link>
           </ButtonContainer>
         </StyledForm>

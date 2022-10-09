@@ -5,7 +5,7 @@ import {
     Route,
 } from "react-router-dom";
 import routes from './routes';
-import { useAuth } from './useAuth';
+import { useAuth } from './hooks/useAuth';
 
 const router = createBrowserRouter(routes);
 
