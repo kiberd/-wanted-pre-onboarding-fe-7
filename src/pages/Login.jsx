@@ -59,12 +59,10 @@ const Login = () => {
     initialValues: { email: "", password: "" },
     onSubmit: async () => {
       const response = await signin(values.email, values.password);
-      console.log(response);
+      
       if (response.status === 200) {
-        if (user){
-          alert("로그인 성공!");
-          navigate("/todo");
-        }
+        alert("로그인 성공!");
+        navigate("/todo");
       } else {
         alert(response.data.message);
       }

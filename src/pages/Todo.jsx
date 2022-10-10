@@ -69,6 +69,10 @@ const Todo = () => {
     fecthTodoList();
   }, []);
 
+  useEffect(() => {
+    console.log(todoList);
+  } ,[todoList])
+
   const handleChange = (e) => {
     const value = e.target.value;
     setTodoInput(value);
