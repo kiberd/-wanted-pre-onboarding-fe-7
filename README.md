@@ -14,6 +14,7 @@
   - 페이지 안에 이메일 입력창, 비밀번호 입력창, 제출 버튼이 포함된 형태로 구성해주세요
   - 로그인, 회원가입을 별도의 경로로 분리해도 무방합니다.
   ![image](https://user-images.githubusercontent.com/34852597/194792363-ec355414-7a9e-4887-8af1-3ac1eb68a668.png)
+  ![image](https://user-images.githubusercontent.com/34852597/194792732-b3e2a1a4-45e2-4834-b75d-9b8c9b8f7b8c.png)
 
 
 #### Assignment1
@@ -49,6 +50,7 @@
 - 리스트 페이지에는 투두 리스트의 내용과 완료 여부가 표시되어야 합니다.
 - 리스트 페이지에는 입력창과 추가 버튼이 있고, 추가 버튼을 누르면 입력창의 내용이 새로운 투두 리스트로 추가되도록 해주세요
 ![image](https://user-images.githubusercontent.com/34852597/194792520-9385eb3f-7842-4f8d-96f9-b4737357af47.png)
+  
 
 
 #### Assignment5
