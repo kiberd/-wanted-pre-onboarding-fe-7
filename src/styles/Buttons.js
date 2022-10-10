@@ -9,5 +9,6 @@ export const DefaultButton = styled.button`
   cursor: ${props => props.disabled ? null : "pointer"};
   :hover{
     background-color: ${props => props.disabled ? null : "slategray"};
+    color:  ${props => props.disabled ? null : "whitesmoke"};
   }
 `;

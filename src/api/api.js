@@ -4,7 +4,8 @@ const access_token = localStorage.getItem("access_token");
 
 export const signIn = async (email, password) => {
 
-    return axios.post('https://pre-onboarding-selection-task.shop/auth/signin', {
+    // return axios.post('https://pre-onboarding-selection-task.shop/auth/signin', {
+        return axios.post(process.env.REACT_APP_ENDPOINT + 'auth/signin', {
         email: email,
         password: password
     });
@@ -12,7 +13,7 @@ export const signIn = async (email, password) => {
 
 export const signUp = async (email, password) => {
 
-    return axios.post('https://pre-onboarding-selection-task.shop/auth/signup', {
+    return axios.post(process.env.REACT_APP_ENDPOINT + 'auth/signup', {
         email: email,
         password: password
     });
@@ -20,7 +21,7 @@ export const signUp = async (email, password) => {
 
 export const createTodo = async (todo) => {
 
-    return axios.post('https://pre-onboarding-selection-task.shop/todos', {
+    return axios.post(process.env.REACT_APP_ENDPOINT + 'todos', {
         todo: todo,
     }, {
         headers: {
@@ -32,7 +33,7 @@ export const createTodo = async (todo) => {
 export const getTodos = async () => {
 
     return axios
-        .get('https://pre-onboarding-selection-task.shop/todos', {
+        .get(process.env.REACT_APP_ENDPOINT + 'todos', {
             headers: {
                 Authorization: `Bearer ${access_token}`,
             }
@@ -41,7 +42,7 @@ export const getTodos = async () => {
 
 export const updateTodo = async (id, todo, isCompleted) => {
 
-    return axios.put('https://pre-onboarding-selection-task.shop/todos/' + id, {
+    return axios.put(process.env.REACT_APP_ENDPOINT + 'todos/' + id, {
         todo: todo,
         isCompleted: isCompleted,
     }, {
@@ -53,7 +54,7 @@ export const updateTodo = async (id, todo, isCompleted) => {
 
 export const deleteTodo = async (id) => {
 
-    return axios.delete('https://pre-onboarding-selection-task.shop/todos/' + id, {
+    return axios.delete(process.env.REACT_APP_ENDPOINT + 'todos/' + id, {
         headers: {
             Authorization: `Bearer ${access_token}`,
         },
