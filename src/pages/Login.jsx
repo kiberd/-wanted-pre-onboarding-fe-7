@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { validate } from "../utills/validate";
-import { useAuth } from "../hooks/useAuth";
 import useForm from "../hooks/useForm";
+import { useAuth } from '../hooks/useAuth';
 
 import { DefaultButton } from '../styles/Buttons';
 

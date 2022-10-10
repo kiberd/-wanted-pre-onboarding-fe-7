@@ -6,8 +6,8 @@ export const DefaultButton = styled.button`
   font-size: 1rem;
   line-height: 1.5;
   border: 1px solid lightgray;
-  cursor: pointer;
+  cursor: ${props => props.disabled ? null : "pointer"};
   :hover{
-    background-color: slategray;
+    background-color: ${props => props.disabled ? null : "slategray"};
   }
 `;

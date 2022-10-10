@@ -1,8 +1,6 @@
 import axios from "axios";
 
 const access_token = localStorage.getItem("access_token");
-// const access_token = "dfdf";
-
 
 export const signIn = async (email, password) => {
 
@@ -21,8 +19,6 @@ export const signUp = async (email, password) => {
 }
 
 export const createTodo = async (todo) => {
-
-    console.log(access_token);
 
     return axios.post('https://pre-onboarding-selection-task.shop/todos', {
         todo: todo,

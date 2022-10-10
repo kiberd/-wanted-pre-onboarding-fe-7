@@ -18,7 +18,6 @@ const useForm = ({
     const handleSubmit = async (event) => {
         setSubmitting(true);
         event.preventDefault();
-        // setErrors(validate(values));
     };
 
     useEffect(() => {
