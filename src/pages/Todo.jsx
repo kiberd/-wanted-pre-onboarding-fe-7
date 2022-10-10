@@ -48,6 +48,8 @@ const TodoListContainer = styled.div`
 
 const Todo = () => {
 
+  const access_token = localStorage.getItem("access_token");
+
   const [todoInput, setTodoInput] = useState();
   const [todoList, setTodoList] = useState([]);
 
@@ -57,7 +59,7 @@ const Todo = () => {
   async function fecthTodoList() {
     try {
       setIsLoading(true);
-      const response = await getTodos();
+      const response = await getTodos(access_token);
       setTodoList(response.data);
     } catch (error) {
       setIsError(true);
@@ -69,10 +71,6 @@ const Todo = () => {
     fecthTodoList();
   }, []);
 
-  useEffect(() => {
-    console.log(todoList);
-  } ,[todoList])
-
   const handleChange = (e) => {
     const value = e.target.value;
     setTodoInput(value);
@@ -80,7 +78,7 @@ const Todo = () => {
 
   const handleCreateClick = async () => {
     try {
-      const response = await createTodo(todoInput);
+      const response = await createTodo(todoInput, access_token);
       setTodoInput("");
       fecthTodoList();
       alert("생성 성공!");
@@ -91,7 +89,7 @@ const Todo = () => {
 
   const handleDeleteClick = async (id) => {
     try {
-      const response = await deleteTodo(id);
+      const response = await deleteTodo(id, access_token);
       fecthTodoList();
       alert("삭제 성공!");
     } catch (error) {
@@ -101,7 +99,7 @@ const Todo = () => {
 
   const handleUpdateClick = async (id, todo, isCompleted) => {
     try {
-      const response = await updateTodo(id, todo, JSON.parse(isCompleted));
+      const response = await updateTodo(id, todo, JSON.parse(isCompleted), access_token);
       fecthTodoList();
       alert("갱신 성공!");
       return response;

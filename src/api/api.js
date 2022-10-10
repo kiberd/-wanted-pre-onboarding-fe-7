@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const access_token = localStorage.getItem("access_token");
-
 export const signIn = async (email, password) => {
 
     // return axios.post('https://pre-onboarding-selection-task.shop/auth/signin', {
@@ -19,7 +17,7 @@ export const signUp = async (email, password) => {
     });
 }
 
-export const createTodo = async (todo) => {
+export const createTodo = async (todo, access_token) => {
 
     return axios.post(process.env.REACT_APP_ENDPOINT + 'todos', {
         todo: todo,
@@ -30,7 +28,7 @@ export const createTodo = async (todo) => {
     })
 };
 
-export const getTodos = async () => {
+export const getTodos = async (access_token) => {
 
     return axios
         .get(process.env.REACT_APP_ENDPOINT + 'todos', {
@@ -40,7 +38,7 @@ export const getTodos = async () => {
         })
 };
 
-export const updateTodo = async (id, todo, isCompleted) => {
+export const updateTodo = async (id, todo, isCompleted, access_token) => {
 
     return axios.put(process.env.REACT_APP_ENDPOINT + 'todos/' + id, {
         todo: todo,
@@ -52,7 +50,7 @@ export const updateTodo = async (id, todo, isCompleted) => {
     })
 };
 
-export const deleteTodo = async (id) => {
+export const deleteTodo = async (id, access_token) => {
 
     return axios.delete(process.env.REACT_APP_ENDPOINT + 'todos/' + id, {
         headers: {
