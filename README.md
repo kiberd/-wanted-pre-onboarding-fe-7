@@ -50,6 +50,7 @@
 - 리스트 페이지에는 투두 리스트의 내용과 완료 여부가 표시되어야 합니다.
 - 리스트 페이지에는 입력창과 추가 버튼이 있고, 추가 버튼을 누르면 입력창의 내용이 새로운 투두 리스트로 추가되도록 해주세요
 ![image](https://user-images.githubusercontent.com/34852597/194792520-9385eb3f-7842-4f8d-96f9-b4737357af47.png)
+![image](https://user-images.githubusercontent.com/34852597/194792944-ccd2d0a8-28c7-4b0a-8b89-5726ac78024c.png)
 
 
 #### Assignment5
